@@ -1,0 +1,83 @@
+product: 
+
+{
+    "productName": "iPhone 11",
+    "description": "55mp Camera",
+    "category": "Smart Phones",
+    "brand": "Apple",
+    "price": 55000,
+    "orderId": 1 // eto yung  cart/order id para eto tatawagin sa kabilang service 
+}
+
+// then create kana order 
+cart/order:
+
+{
+	// no need pag auto generate & eto yung pantawag sa product "cartId": 1
+    "cartName": "Cart 2"
+}
+
+so bali pag tinawag si order id gamit RestTemplate ang labas is ganto 
+
+http://localhost:9002/my-cart/cart/1
+{
+    "cart": {
+        "cartId": 1,
+        "cartName": "Cart 1"
+    },
+    "productList": [
+        {
+            "productId": 1,
+            "productName": "iPhone X",
+            "description": null,
+            "category": "Smart Phones",
+            "brand": "Apple",
+            "price": 50000,
+            "orderId": 1
+        },
+        {
+            "productId": 2,
+            "productName": "iPhone 11",
+            "description": "55mp Camera",
+            "category": "Smart Phones",
+            "brand": "Apple",
+            "price": 55000,
+            "orderId": 1
+        }
+    ]
+}
+
+then same lang sa payment
+if babayaran mo na yung cart mag create ka payment
+
+{
+    "paymentName": "PAY102",
+    "paymentType": "Debit",
+    "cardNumber": "1234 5678 9111 2222",
+    "cvv": "123",
+    "cardName": "BDO",
+    "expiryDate": "2000-07-05",
+    "orderId": 1
+}
+
+so pag tinawag si payment id then ang lalabas is 
+{
+    "payment": {
+        "paymentId": 1,
+        "paymentName": "PAY101",
+        "paymentType": "Debit",
+        "cardNumber": "123456789",
+        "cvv": "123",
+        "cardName": "BPI",
+        "expiryDate": "2000-07-05",
+        "orderId": 1
+    },
+    "cartList": [
+        {
+            "cartId": 1,
+            "cartName": "Cart 1"
+        }
+    ]
+
+
+
